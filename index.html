@@ -1,0 +1,1574 @@
+HOTEL SAFFRON
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Saffron - Exquisite Digital Menu</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0B1B3D',
+            offwhite: '#FCFBF7',
+            royalgreen: '#0B4C35',
+            gold: '#D4AF37',
+            goldlight: '#F3E5AB'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Prevents horizontal scrolling during flips */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      background-color: #050b1a; /* Dark background to frame the menu */
+    }
+
+    /* Elegant Custom Scrollbar for scrollable sub-sections */
+    .menu-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .menu-scrollbar::-webkit-scrollbar-track {
+      background: rgba(11, 76, 53, 0.05);
+    }
+    .menu-scrollbar::-webkit-scrollbar-thumb {
+      background: #D4AF37;
+      border-radius: 4px;
+    }
+
+    /* 3D Book Layout Setup */
+    .book-container {
+      perspective: 1800px;
+    }
+
+    .book {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      height: 760px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+    }
+
+    /* Spine Accent */
+    .book-spine {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 14px;
+      height: 100%;
+      background: linear-gradient(to right, #050b1a 0%, #0B1B3D 30%, #D4AF37 80%, #0B1B3D 100%);
+      border-radius: 8px 0 0 8px;
+      z-index: 1000;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+
+    /* Page container with hinge */
+    .book-page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform-style: preserve-3d;
+      transform-origin: left center;
+      transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Active page needs interaction */
+    .book-page.active {
+      pointer-events: auto;
+    }
+
+    /* Flip rotation */
+    .book-page.flipped {
+      transform: rotateY(-180deg);
+    }
+
+    /* Front/Back Faces */
+    .page-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 6px 16px 16px 6px;
+      box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .page-face.front {
+      z-index: 2;
+      background: #FCFBF7;
+    }
+
+    .page-face.back {
+      transform: rotateY(180deg);
+      z-index: 1;
+      background: #FCFBF7;
+    }
+
+    /* Page shadow element overlay */
+    .page-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+      transition: background 0.9s ease;
+    }
+
+    .book-page.flipped .page-overlay {
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    /* Standard dotted menu line */
+    .menu-item-dot {
+      flex-grow: 1;
+      border-bottom: 2px dotted rgba(11, 76, 53, 0.2);
+      margin: 0 8px;
+      position: relative;
+      top: -4px;
+    }
+
+    /* Cover Styling */
+    .cover-image-container {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen text-slate-800 antialiased font-sans">
+
+  <!-- Top Agency Banner -->
+  <a href="https://karan-digital-menu-agency.vercel.app/#contact" target="_blank" class="w-full bg-gradient-to-r from-navy via-royalgreen to-navy text-gold hover:text-white py-2.5 px-4 text-center text-xs tracking-wider uppercase font-semibold transition-all duration-300 shadow-md border-b border-gold/30 flex items-center justify-center gap-2 z-50">
+    <i class="fa-solid fa-sparkles animate-pulse text-gold"></i>
+    <span>Created by KARAN DIGITAL MENU AGENCY</span>
+    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+  </a>
+
+  <!-- Header Section for Restaurant Logo/Name -->
+  <header class="w-full py-4 text-center flex flex-col items-center justify-center gap-1 z-40 bg-[#050b1a]/80 backdrop-blur-md">
+    <h1 class="font-cinzel text-2xl md:text-3xl text-gold font-bold tracking-widest flex items-center gap-2">
+      <span class="text-royalgreen text-lg">✦</span> HOTEL SAFFRON <span class="text-royalgreen text-lg">✦</span>
+    </h1>
+    <p class="text-[10px] md:text-xs text-slate-400 tracking-widest uppercase font-light">Fine Dining Excellence</p>
+  </header>
+
+  <!-- Main Digital Folio / Book Container -->
+  <main class="flex-grow flex items-center justify-center px-4 py-4 md:py-6 relative z-30 select-none">
+    
+    <!-- Floating Left Navigation Arrow (Desktop Only / Touch Alternative) -->
+    <button id="prevBtn" class="absolute left-4 lg:left-12 xl:left-24 bg-navy/80 hover:bg-royalgreen text-gold hover:text-white w-12 h-12 rounded-full border border-gold/30 shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 z-50 focus:outline-none">
+      <i class="fa-solid fa-chevron-left text-lg"></i>
+    </button>
+
+    <!-- The 3D Book wrapper -->
+    <div class="book-container w-full max-w-[480px] h-[700px] flex items-center justify-center">
+      <div id="restaurantBook" class="book">
+        
+        <!-- Center Book Spine Effect -->
+        <div class="book-spine"></div>
+
+        <!-- PAGE 1: COVER PAGE -->
+        <div class="book-page active" id="p1">
+          <div class="page-face front relative flex flex-col justify-between p-6">
+            <!-- Cover Background Image -->
+            <div class="absolute inset-0 cover-image-container z-0" style="background-image: linear-gradient(rgba(11, 27, 61, 0.4), rgba(5, 11, 26, 0.9)), url('https://i.ibb.co/wNQ4g4Z1/Picsart-26-05-26-17-06-09-462.jpg');"></div>
+            
+            <!-- Cover Top Details -->
+            <div class="relative z-10 flex flex-col items-center mt-8 text-center">
+              <span class="text-gold text-xs tracking-widest uppercase font-semibold border-y border-gold/30 py-1.5 px-4 bg-navy/60 backdrop-blur-sm rounded-md">Welcome</span>
+            </div>
+
+            <!-- Cover Middle Title Plate -->
+            <div class="relative z-10 flex flex-col items-center text-center my-auto">
+              <div class="bg-navy/85 border-2 border-gold/60 p-6 rounded-xl shadow-2xl backdrop-blur-md max-w-[90%] transform hover:scale-[1.02] transition-transform duration-300">
+                <h2 class="font-cinzel text-3xl md:text-4xl text-gold font-bold tracking-widest mb-2 leading-tight">HOTEL</h2>
+                <h1 class="font-cinzel text-4xl md:text-5xl text-white font-extrabold tracking-widest mb-3 leading-tight">SAFFRON</h1>
+                <div class="w-20 h-0.5 bg-gold mx-auto mb-3"></div>
+                <p class="font-serif italic text-sm text-goldlight/90 tracking-wide">Digital Gastronomic Menu</p>
+              </div>
+            </div>
+
+            <!-- Cover Bottom Interaction Prompt -->
+            <div class="relative z-10 text-center flex flex-col items-center justify-center gap-2 pb-6">
+              <span class="text-xs text-white/80 uppercase tracking-widest animate-bounce flex items-center gap-1.5 bg-royalgreen/70 px-4 py-1.5 rounded-full backdrop-blur-sm">
+                Swipe Left to Open <i class="fa-solid fa-angles-right"></i>
+              </span>
+              <p class="text-[10px] text-slate-400">Flip sheets to explore dishes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 2: CONTINENTAL SNACKS & BURGERS -->
+        <div class="book-page" id="p2">
+          <div class="page-face front flex flex-col justify-between p-5 border-l-2 border-gold/20">
+            <!-- Paper Header -->
+            <div class="flex items-center justify-between border-b border-royalgreen/20 pb-2">
+              <span class="font-cinzel text-xs font-semibold text-royalgreen tracking-widest">Hotel Saffron</span>
+              <span class="font-cinzel text-xs font-semibold text-gold">Page 02</span>
+            </div>
+
+            <!-- Page Scrollable content -->
+            <div class="flex-grow my-4 overflow-y-auto pr-1 menu-scrollbar flex flex-col gap-6">
+              
+              <!-- Section: Continental Snacks -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Continental Snacks
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-continental">
+                  <!-- Dynamic items load here, fallbacks pre-coded -->
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mashroom Duplex">
+                    <span class="font-serif font-bold text-navy text-sm">Mashroom Duplex</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Peanut Masala">
+                    <span class="font-serif font-bold text-navy text-sm">Peanut Masala</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Aloo Channa Chaat">
+                    <span class="font-serif font-bold text-navy text-sm">Aloo Channa Chaat</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Plain peanut">
+                    <span class="font-serif font-bold text-navy text-sm">Plain Peanut</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Channa Masala">
+                    <span class="font-serif font-bold text-navy text-sm">Channa Masala</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Burger & Sandwich -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Burger & Sandwich
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-burger">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Veg Burger">
+                    <span class="font-serif font-bold text-navy text-sm">Veg Burger</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Cheese burger">
+                    <span class="font-serif font-bold text-navy text-sm">Cheese Burger</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Jumbo Paneer Burger">
+                    <span class="font-serif font-bold text-navy text-sm">Jumbo Paneer Burger</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Veg Sandwich">
+                    <span class="font-serif font-bold text-navy text-sm">Veg Sandwich</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Veg Grilled Sandwich">
+                    <span class="font-serif font-bold text-navy text-sm">Veg Grilled Sandwich</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Cheese Grilled Sandwich">
+                    <span class="font-serif font-bold text-navy text-sm">Cheese Grilled Sandwich</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Paneer Grilled Sandwich">
+                    <span class="font-serif font-bold text-navy text-sm">Paneer Grilled Sandwich</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Paneer Grill (Big Paneer)">
+                    <span class="font-serif font-bold text-navy text-sm">Paneer Grill (Big Paneer)</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Tandoori Paneer Grill">
+                    <span class="font-serif font-bold text-navy text-sm">Tandoori Paneer Grill</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chilli Tandoori Paneer Grill">
+                    <span class="font-serif font-bold text-navy text-sm">Chilli Tandoori Paneer Grill</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chatpata Paneer Grill">
+                    <span class="font-serif font-bold text-navy text-sm">Chatpata Paneer Grill</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Achari Paneer Grill">
+                    <span class="font-serif font-bold text-navy text-sm">Achari Paneer Grill</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Page Footer with Google Reviews -->
+            <div class="border-t border-royalgreen/20 pt-3 text-center">
+              <a href="https://www.google.com/search?q=Hotel+Saffron+Yamuna+Nagar&ludocid=6833777558661900239#lrd=0x390ef911c7cf6b81:0x5ee11fbc9c991fcf,3,1" target="_blank" class="inline-flex items-center gap-2 bg-royalgreen hover:bg-navy text-gold hover:text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 shadow-md">
+                <i class="fa-solid fa-star text-gold"></i> Review Us on Google <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 3: CHINESE & BEVERAGES & SHAKES -->
+        <div class="book-page" id="p3">
+          <div class="page-face front flex flex-col justify-between p-5 border-l-2 border-gold/20">
+            <!-- Paper Header -->
+            <div class="flex items-center justify-between border-b border-royalgreen/20 pb-2">
+              <span class="font-cinzel text-xs font-semibold text-royalgreen tracking-widest">Hotel Saffron</span>
+              <span class="font-cinzel text-xs font-semibold text-gold">Page 03</span>
+            </div>
+
+            <!-- Scrollable content -->
+            <div class="flex-grow my-4 overflow-y-auto pr-1 menu-scrollbar flex flex-col gap-6">
+              
+              <!-- Section: Chinese -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Chinese specialties
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-chinese">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Veg Chowmein">
+                    <span class="font-serif font-bold text-navy text-sm">Veg Chowmein</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chese Chowmein">
+                    <span class="font-serif font-bold text-navy text-sm">Cheese Chowmein</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Singapuri Chowmein">
+                    <span class="font-serif font-bold text-navy text-sm">Singapuri Chowmein</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Hakka Noodle">
+                    <span class="font-serif font-bold text-navy text-sm">Hakka Noodle</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="French Fries">
+                    <span class="font-serif font-bold text-navy text-sm">French Fries</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Crispy Corn">
+                    <span class="font-serif font-bold text-navy text-sm">Crispy Corn</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chilli Potato">
+                    <span class="font-serif font-bold text-navy text-sm">Chilli Potato</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Honey Chilli Potato">
+                    <span class="font-serif font-bold text-navy text-sm">Honey Chilli Potato</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Veg Manchurian (Dry/Gravy)">
+                    <span class="font-serif font-bold text-navy text-sm">Veg Manchurian (Dry/Gravy)</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chese chilli (Dry/Gravy)">
+                    <span class="font-serif font-bold text-navy text-sm">Cheese Chilli (Dry/Gravy)</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Veg. Fried Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Veg. Fried Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chilly Gobhi">
+                    <span class="font-serif font-bold text-navy text-sm">Chilly Gobhi</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Lemon Paneer">
+                    <span class="font-serif font-bold text-navy text-sm">Lemon Paneer</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Lemon Mashroom">
+                    <span class="font-serif font-bold text-navy text-sm">Lemon Mushroom</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Spring Rolls">
+                    <span class="font-serif font-bold text-navy text-sm">Spring Rolls</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="KFC Spring Rolls">
+                    <span class="font-serif font-bold text-navy text-sm">KFC Spring Rolls</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Beverages -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Refreshing Beverages
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-beverages">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Water">
+                    <span class="font-serif font-bold text-navy text-sm">Packaged Water</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Hot Coffee">
+                    <span class="font-serif font-bold text-navy text-sm">Hot Coffee</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Hot Milk">
+                    <span class="font-serif font-bold text-navy text-sm">Hot Milk</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Sweet Lassi">
+                    <span class="font-serif font-bold text-navy text-sm">Sweet Lassi</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chaach">
+                    <span class="font-serif font-bold text-navy text-sm">Buttermilk (Chaach)</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Soda">
+                    <span class="font-serif font-bold text-navy text-sm">Premium Soda</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Tea">
+                    <span class="font-serif font-bold text-navy text-sm">Special Tea</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Cold coffee">
+                    <span class="font-serif font-bold text-navy text-sm">Cold Coffee</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chocolate Cold Coffee">
+                    <span class="font-serif font-bold text-navy text-sm">Chocolate Cold Coffee</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Cold Drink (300ml)">
+                    <span class="font-serif font-bold text-navy text-sm">Cold Drink (300ml)</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Ice Cubes">
+                    <span class="font-serif font-bold text-navy text-sm">Ice Cubes</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Shakes -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Thick Shakes
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-shakes">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Pineapple Shake">
+                    <span class="font-serif font-bold text-navy text-sm">Pineapple Shake</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Strawberry Shake">
+                    <span class="font-serif font-bold text-navy text-sm">Strawberry Shake</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Butter Scotch">
+                    <span class="font-serif font-bold text-navy text-sm">Butter Scotch Shake</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chocolate Shake">
+                    <span class="font-serif font-bold text-navy text-sm">Chocolate Shake</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Shake">
+                    <span class="font-serif font-bold text-navy text-sm">Special Shake</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Page Footer with Google Reviews -->
+            <div class="border-t border-royalgreen/20 pt-3 text-center">
+              <a href="https://www.google.com/search?q=Hotel+Saffron+Yamuna+Nagar&ludocid=6833777558661900239#lrd=0x390ef911c7cf6b81:0x5ee11fbc9c991fcf,3,1" target="_blank" class="inline-flex items-center gap-2 bg-royalgreen hover:bg-navy text-gold hover:text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 shadow-md">
+                <i class="fa-solid fa-star text-gold"></i> Review Us on Google <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 4: BREAKFAST & PASTA & VEG FOOD -->
+        <div class="book-page" id="p4">
+          <div class="page-face front flex flex-col justify-between p-5 border-l-2 border-gold/20">
+            <!-- Paper Header -->
+            <div class="flex items-center justify-between border-b border-royalgreen/20 pb-2">
+              <span class="font-cinzel text-xs font-semibold text-royalgreen tracking-widest">Hotel Saffron</span>
+              <span class="font-cinzel text-xs font-semibold text-gold">Page 04</span>
+            </div>
+
+            <!-- Scrollable content -->
+            <div class="flex-grow my-4 overflow-y-auto pr-1 menu-scrollbar flex flex-col gap-6">
+              
+              <!-- Section: Breakfast -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Breakfast corner
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-breakfast">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Bread Toast">
+                    <span class="font-serif font-bold text-navy text-sm">Bread Toast</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex flex-col py-1.5 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Two Stuff Prantha with Curd">
+                    <div class="flex items-baseline justify-between">
+                      <span class="font-serif font-bold text-navy text-sm">Two Stuffed Parantha with Curd</span>
+                      <span class="menu-item-dot"></span>
+                      <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                    </div>
+                    <span class="text-[11px] text-slate-500 font-light mt-0.5">(Aloo, Onion, Gobhi, Mooli, Mix)</span>
+                  </div>
+                  <div class="menu-item flex flex-col py-1.5 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Tawa Parantha">
+                    <div class="flex items-baseline justify-between">
+                      <span class="font-serif font-bold text-navy text-sm">Tawa Parantha</span>
+                      <span class="menu-item-dot"></span>
+                      <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                    </div>
+                    <span class="text-[11px] text-slate-500 font-light mt-0.5">(Aloo, Onion, Gobhi, Mix)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Pasta -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Italian Pasta
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-pasta">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Red sauce">
+                    <span class="font-serif font-bold text-navy text-sm">Red Sauce Pasta</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="White sauce">
+                    <span class="font-serif font-bold text-navy text-sm">White Sauce Pasta</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mix sauce">
+                    <span class="font-serif font-bold text-navy text-sm">Mix Sauce Pasta</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Veg Food -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Vegetarian specialties
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-vegfood">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mix Veg.">
+                    <span class="font-serif font-bold text-navy text-sm">Mix Veg.</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mashroom Lazeez">
+                    <span class="font-serif font-bold text-navy text-sm">Mushroom Lazeez</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mashroom Butter Masala">
+                    <span class="font-serif font-bold text-navy text-sm">Mushroom Butter Masala</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mashroom Do Pyaza">
+                    <span class="font-serif font-bold text-navy text-sm">Mushroom Do Pyaza</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Veg. Kofta">
+                    <span class="font-serif font-bold text-navy text-sm">Veg. Kofta</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Palak Kofta">
+                    <span class="font-serif font-bold text-navy text-sm">Palak Kofta</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Malai Kofta">
+                    <span class="font-serif font-bold text-navy text-sm">Malai Kofta</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Aloo Mutter">
+                    <span class="font-serif font-bold text-navy text-sm">Aloo Mutter</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Kadi Pakoda">
+                    <span class="font-serif font-bold text-navy text-sm">Kadi Pakoda</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mutter Mashroom">
+                    <span class="font-serif font-bold text-navy text-sm">Mutter Mushroom</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Paneer Bhurji">
+                    <span class="font-serif font-bold text-navy text-sm">Paneer Bhurji</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Page Footer with Google Reviews -->
+            <div class="border-t border-royalgreen/20 pt-3 text-center">
+              <a href="https://www.google.com/search?q=Hotel+Saffron+Yamuna+Nagar&ludocid=6833777558661900239#lrd=0x390ef911c7cf6b81:0x5ee11fbc9c991fcf,3,1" target="_blank" class="inline-flex items-center gap-2 bg-royalgreen hover:bg-navy text-gold hover:text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 shadow-md">
+                <i class="fa-solid fa-star text-gold"></i> Review Us on Google <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 5: MAIN COURSE & RAITA & RICE -->
+        <div class="book-page" id="p5">
+          <div class="page-face front flex flex-col justify-between p-5 border-l-2 border-gold/20">
+            <!-- Paper Header -->
+            <div class="flex items-center justify-between border-b border-royalgreen/20 pb-2">
+              <span class="font-cinzel text-xs font-semibold text-royalgreen tracking-widest">Hotel Saffron</span>
+              <span class="font-cinzel text-xs font-semibold text-gold">Page 05</span>
+            </div>
+
+            <!-- Scrollable content -->
+            <div class="flex-grow my-4 overflow-y-auto pr-1 menu-scrollbar flex flex-col gap-6">
+              
+              <!-- Section: Main Course -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Royal Main Course
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-maincourse">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Yellow Dal Tadka">
+                    <span class="font-serif font-bold text-navy text-sm">Yellow Dal Tadka</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Dal Makhani">
+                    <span class="font-serif font-bold text-navy text-sm">Dal Makhani</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Shahi Paneer">
+                    <span class="font-serif font-bold text-navy text-sm">Shahi Paneer</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Kadai Paneer">
+                    <span class="font-serif font-bold text-navy text-sm">Kadai Paneer</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Paneer Butter Masala">
+                    <span class="font-serif font-bold text-navy text-sm">Paneer Butter Masala</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Paneer Takatak">
+                    <span class="font-serif font-bold text-navy text-sm">Paneer Takatak</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Palak Paneer">
+                    <span class="font-serif font-bold text-navy text-sm">Palak Paneer</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Dal Fry">
+                    <span class="font-serif font-bold text-navy text-sm">Dal Fry</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Punjabi Dal Tadka">
+                    <span class="font-serif font-bold text-navy text-sm">Punjabi Dal Tadka</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Rajma Rasele">
+                    <span class="font-serif font-bold text-navy text-sm">Rajma Rasele</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Raita -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Fresh Raita & Curd
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-raita">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Plain Curd">
+                    <span class="font-serif font-bold text-navy text-sm">Plain Curd</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Raita Boondi">
+                    <span class="font-serif font-bold text-navy text-sm">Raita Boondi</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mix Raita">
+                    <span class="font-serif font-bold text-navy text-sm">Mix Raita</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Pineapple Raita">
+                    <span class="font-serif font-bold text-navy text-sm">Pineapple Raita</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Rice -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Basmati Rice
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-rice">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Steamed Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Steamed Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Jeera Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Jeera Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Veg Pulao">
+                    <span class="font-serif font-bold text-navy text-sm">Veg Pulao</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Mashroom Veg. Pulao">
+                    <span class="font-serif font-bold text-navy text-sm">Mushroom Veg. Pulao</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Manchurian Fried Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Manchurian Fried Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Cheese Fried Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Cheese Fried Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Page Footer with Google Reviews -->
+            <div class="border-t border-royalgreen/20 pt-3 text-center">
+              <a href="https://www.google.com/search?q=Hotel+Saffron+Yamuna+Nagar&ludocid=6833777558661900239#lrd=0x390ef911c7cf6b81:0x5ee11fbc9c991fcf,3,1" target="_blank" class="inline-flex items-center gap-2 bg-royalgreen hover:bg-navy text-gold hover:text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 shadow-md">
+                <i class="fa-solid fa-star text-gold"></i> Review Us on Google <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 6: TANDOORI BREADS, SALAD, PAPAD, COMBOS -->
+        <div class="book-page" id="p6">
+          <div class="page-face front flex flex-col justify-between p-5 border-l-2 border-gold/20">
+            <!-- Paper Header -->
+            <div class="flex items-center justify-between border-b border-royalgreen/20 pb-2">
+              <span class="font-cinzel text-xs font-semibold text-royalgreen tracking-widest">Hotel Saffron</span>
+              <span class="font-cinzel text-xs font-semibold text-gold">Page 06</span>
+            </div>
+
+            <!-- Scrollable content -->
+            <div class="flex-grow my-4 overflow-y-auto pr-1 menu-scrollbar flex flex-col gap-6">
+              
+              <!-- Section: Tandoori Breads -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Clay Oven Breads
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-tandoori">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Tandoori Roti">
+                    <span class="font-serif font-bold text-navy text-sm">Tandoori Roti</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Butter Tandoori Roti">
+                    <span class="font-serif font-bold text-navy text-sm">Butter Tandoori Roti</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chilly Roti">
+                    <span class="font-serif font-bold text-navy text-sm">Chilly Roti</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Missi Roti">
+                    <span class="font-serif font-bold text-navy text-sm">Missi Roti</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chilly Missi Roti">
+                    <span class="font-serif font-bold text-navy text-sm">Chilly Missi Roti</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Onion Rote">
+                    <span class="font-serif font-bold text-navy text-sm">Onion Roti</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Laccha Prantha">
+                    <span class="font-serif font-bold text-navy text-sm">Laccha Parantha</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Stuffed Naan">
+                    <span class="font-serif font-bold text-navy text-sm">Stuffed Naan</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Plain Naan">
+                    <span class="font-serif font-bold text-navy text-sm">Plain Naan</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Garlic Naan">
+                    <span class="font-serif font-bold text-navy text-sm">Garlic Naan</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Butter Naan">
+                    <span class="font-serif font-bold text-navy text-sm">Butter Naan</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Onion Kulcha">
+                    <span class="font-serif font-bold text-navy text-sm">Onion Kulcha</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Aloo Kulcha">
+                    <span class="font-serif font-bold text-navy text-sm">Aloo Kulcha</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Paneer Kulcha">
+                    <span class="font-serif font-bold text-navy text-sm">Paneer Kulcha</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Salad -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Salad Garden
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-salad">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Green Salad">
+                    <span class="font-serif font-bold text-navy text-sm">Green Salad</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Salad Katori">
+                    <span class="font-serif font-bold text-navy text-sm">Salad Katori</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Papad -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Crispy Papad
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-papad">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Plain Papad">
+                    <span class="font-serif font-bold text-navy text-sm">Plain Papad</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Roasted Papad">
+                    <span class="font-serif font-bold text-navy text-sm">Roasted Papad</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Fry Papad">
+                    <span class="font-serif font-bold text-navy text-sm">Fried Papad</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Masala Papad">
+                    <span class="font-serif font-bold text-navy text-sm">Masala Papad</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Peanut Masala">
+                    <span class="font-serif font-bold text-navy text-sm">Peanut Masala Extra</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section: Combos -->
+              <div>
+                <div class="text-center mb-4">
+                  <h3 class="font-serif italic text-lg text-royalgreen font-bold inline-block border-b-2 border-gold pb-1 px-4 uppercase tracking-wider bg-goldlight/10 rounded-t-md">
+                    Super Saver Combos
+                  </h3>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="sec-combo">
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Dal Makhani + Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Dal Makhani + Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Yellow Dal + Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Yellow Dal + Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Rajma + Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Rajma + Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Kadi Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Kadi + Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                  <div class="menu-item flex items-baseline justify-between py-1 hover:bg-goldlight/10 px-2 rounded transition-colors" data-name="Chhole + Rice">
+                    <span class="font-serif font-bold text-navy text-sm">Chhole + Rice</span>
+                    <span class="menu-item-dot"></span>
+                    <span class="font-sans font-bold text-royalgreen text-sm item-price">₹00</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Page Footer with Google Reviews -->
+            <div class="border-t border-royalgreen/20 pt-3 text-center">
+              <a href="https://www.google.com/search?q=Hotel+Saffron+Yamuna+Nagar&ludocid=6833777558661900239#lrd=0x390ef911c7cf6b81:0x5ee11fbc9c991fcf,3,1" target="_blank" class="inline-flex items-center gap-2 bg-royalgreen hover:bg-navy text-gold hover:text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 transform hover:scale-105 shadow-md">
+                <i class="fa-solid fa-star text-gold"></i> Review Us on Google <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Floating Right Navigation Arrow (Desktop Only / Touch Alternative) -->
+    <button id="nextBtn" class="absolute right-4 lg:right-12 xl:right-24 bg-navy/80 hover:bg-royalgreen text-gold hover:text-white w-12 h-12 rounded-full border border-gold/30 shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 z-50 focus:outline-none">
+      <i class="fa-solid fa-chevron-right text-lg"></i>
+    </button>
+  </main>
+
+  <!-- Bottom Page Indicator & Live Sync State Badge -->
+  <footer class="w-full pb-6 pt-2 flex flex-col items-center justify-center gap-3 bg-[#050b1a]/80 backdrop-blur-md z-40">
+    
+    <!-- Dots Navigation Indicator -->
+    <div class="flex items-center gap-2" id="dotsContainer">
+      <button class="w-2.5 h-2.5 rounded-full bg-gold transition-all duration-300 cursor-pointer" onclick="goToPage(1)"></button>
+      <button class="w-2.5 h-2.5 rounded-full bg-slate-600 transition-all duration-300 cursor-pointer" onclick="goToPage(2)"></button>
+      <button class="w-2.5 h-2.5 rounded-full bg-slate-600 transition-all duration-300 cursor-pointer" onclick="goToPage(3)"></button>
+      <button class="w-2.5 h-2.5 rounded-full bg-slate-600 transition-all duration-300 cursor-pointer" onclick="goToPage(4)"></button>
+      <button class="w-2.5 h-2.5 rounded-full bg-slate-600 transition-all duration-300 cursor-pointer" onclick="goToPage(5)"></button>
+      <button class="w-2.5 h-2.5 rounded-full bg-slate-600 transition-all duration-300 cursor-pointer" onclick="goToPage(6)"></button>
+    </div>
+
+    <!-- Live Sync Status Banner & Config Panel Trigger -->
+    <div class="flex items-center gap-2 text-[11px] text-slate-400">
+      <span class="flex items-center gap-1.5" id="syncStatus">
+        <span class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
+        Connecting Google Sheet...
+      </span>
+      <span class="text-slate-600">|</span>
+      <button onclick="toggleConfigModal()" class="text-gold hover:text-white transition-colors flex items-center gap-1 cursor-pointer focus:outline-none">
+        <i class="fa-solid fa-gears"></i> Sync Settings
+      </button>
+    </div>
+  </footer>
+
+  <!-- Advanced Sheet Config Modal (Hidden by Default) -->
+  <div id="configModal" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-navy border-2 border-gold rounded-xl max-w-sm w-full p-6 shadow-2xl relative">
+      <button onclick="toggleConfigModal()" class="absolute top-3 right-3 text-slate-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="font-cinzel text-gold text-lg font-bold mb-3 flex items-center gap-2">
+        <i class="fa-solid fa-cloud-arrow-down"></i> Google Sheet Sync
+      </h3>
+      <p class="text-xs text-slate-300 leading-relaxed mb-4">
+        Paste your Google Sheets link to sync prices, names, and items dynamically! Ensure the sheet is public (anyone with the link can view).
+      </p>
+      <div class="flex flex-col gap-3">
+        <label class="text-[10px] text-gold uppercase tracking-wider">Sheet Edit Link / URL</label>
+        <input type="text" id="sheetUrlInput" class="bg-black/40 text-white text-xs border border-gold/40 rounded px-3 py-2 focus:outline-none focus:border-gold w-full" placeholder="https://docs.google.com/spreadsheets/d/.../edit">
+        <div class="flex gap-2 mt-2">
+          <button onclick="saveAndApplySheet()" class="bg-royalgreen text-white text-xs font-semibold px-4 py-2 rounded flex-grow hover:bg-emerald-700 transition-colors">
+            Sync & Save
+          </button>
+          <button onclick="resetToDefaultSheet()" class="bg-slate-700 text-white text-xs px-3 py-2 rounded hover:bg-slate-600 transition-colors">
+            Reset Default
+          </button>
+        </div>
+        <p class="text-[10px] text-slate-400 mt-2 italic text-center" id="syncFeedback"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State Variables
+    let currentPage = 1;
+    const totalPages = 6;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Premium realistic realistic pricing fallback list to show out of box
+    // (If sheet connection fails or is loading, menu retains its integrity!)
+    const fallbackPrices = {
+      "Mashroom Duplex": "₹199", "Peanut Masala": "₹120", "Aloo Channa Chaat": "₹99", "Plain peanut": "₹70", "Channa Masala": "₹149",
+      "Veg Burger": "₹89", "Cheese burger": "₹119", "Jumbo Paneer Burger": "₹149", "Veg Sandwich": "₹79", "Veg Grilled Sandwich": "₹99",
+      "Cheese Grilled Sandwich": "₹129", "Paneer Grilled Sandwich": "₹139", "Paneer Grill (Big Paneer)": "₹159", "Tandoori Paneer Grill": "₹169",
+      "Chilli Tandoori Paneer Grill": "₹179", "Chatpata Paneer Grill": "₹169", "Achari Paneer Grill": "₹169",
+      "Veg Chowmein": "₹110", "Chese Chowmein": "₹140", "Singapuri Chowmein": "₹130", "Hakka Noodle": "₹140", "French Fries": "₹99",
+      "Crispy Corn": "₹149", "Chilli Potato": "₹129", "Honey Chilli Potato": "₹149", "Veg Manchurian (Dry/Gravy)": "₹159",
+      "Chese chilli (Dry/Gravy)": "₹189", "Veg. Fried Rice": "₹129", "Chilly Gobhi": "₹149", "Lemon Paneer": "₹199",
+      "Lemon Mashroom": "₹199", "Spring Rolls": "₹120", "KFC Spring Rolls": "₹149",
+      "Water": "₹20", "Hot Coffee": "₹49", "Hot Milk": "₹39", "Sweet Lassi": "₹59", "Chaach": "₹29", "Soda": "₹19", "Tea": "₹25",
+      "Cold coffee": "₹89", "Chocolate Cold Coffee": "₹109", "Cold Drink (300ml)": "₹40", "Ice Cubes": "₹10",
+      "Pineapple Shake": "₹119", "Strawberry Shake": "₹119", "Butter Scotch": "₹129", "Chocolate Shake": "₹129", "Shake": "₹99",
+      "Bread Toast": "₹49", "Two Stuff Prantha with Curd": "₹99", "Tawa Parantha": "₹79",
+      "Red sauce": "₹139", "White sauce": "₹149", "Mix sauce": "₹159",
+      "Mix Veg.": "₹169", "Mashroom Lazeez": "₹219", "Mashroom Butter Masala": "₹229", "Mashroom Do Pyaza": "₹229",
+      "Veg. Kofta": "₹179", "Palak Kofta": "₹189", "Malai Kofta": "₹209", "Aloo Mutter": "₹139", "Kadi Pakoda": "₹129",
+      "Mutter Mashroom": "₹189", "Paneer Bhurji": "₹229",
+      "Yellow Dal Tadka": "₹149", "Dal Makhani": "₹189", "Shahi Paneer": "₹209", "Kadai Paneer": "₹219", "Paneer Butter Masala": "₹229",
+      "Paneer Takatak": "₹229", "Palak Paneer": "₹209", "Dal Fry": "₹139", "Punjabi Dal Tadka": "₹159", "Rajma Rasele": "₹149",
+      "Plain Curd": "₹59", "Raita Boondi": "₹89", "Mix Raita": "₹99", "Pineapple Raita": "₹119",
+      "Steamed Rice": "₹99", "Jeera Rice": "₹119", "Veg Pulao": "₹149", "Mashroom Veg. Pulao": "₹169",
+      "Manchurian Fried Rice": "₹179", "Cheese Fried Rice": "₹189",
+      "Tandoori Roti": "₹15", "Butter Tandoori Roti": "₹20", "Chilly Roti": "₹25", "Missi Roti": "₹30", "Chilly Missi Roti": "₹35",
+      "Onion Rote": "₹40", "Laccha Prantha": "₹45", "Stuffed Naan": "₹69", "Plain Naan": "₹49", "Garlic Naan": "₹59",
+      "Butter Naan": "₹55", "Onion Kulcha": "₹69", "Aloo Kulcha": "₹69", "Paneer Kulcha": "₹79",
+      "Green Salad": "₹49", "Salad Katori": "₹29",
+      "Plain Papad": "₹15", "Roasted Papad": "₹20", "Fry Papad": "₹25", "Masala Papad": "₹39", "Peanut Masala": "₹119",
+      "Dal Makhani + Rice": "₹149", "Yellow Dal + Rice": "₹139", "Rajma + Rice": "₹139", "Kadi Rice": "₹129", "Chhole + Rice": "₹139"
+    };
+
+    // Google Sheets Details
+    const DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1a9XhA2WCAKdFYUeY1IivbSuGt-i83YT2qG__NBu_E7M/edit?usp=drivesdk";
+    let activeSheetUrl = localStorage.getItem("saffron_sheet_url") || DEFAULT_SHEET_URL;
+
+    // Load initial configuration values into setup form
+    document.getElementById("sheetUrlInput").value = activeSheetUrl;
+
+    // Audio Context Synthesizer for Paper Flip Rustle Sound
+    function playFlipSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        
+        // Generate paper rustling pink-ish noise duration: 0.25 seconds
+        const bufferSize = ctx.sampleRate * 0.25;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        
+        for (let i = 0; i < bufferSize; i++) {
+          // Decreasing envelope for realistic decay
+          const envelope = Math.pow(1 - i / bufferSize, 3);
+          // Random noise biased with envelope
+          data[i] = (Math.random() * 2 - 1) * envelope * 0.12;
+        }
+
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+
+        // Bandpass filter to make it sound like dry crisp paper rubbing
+        const filter = ctx.createBiquadFilter();
+        filter.type = "bandpass";
+        filter.frequency.value = 1800; // mid-high crunch frequencies
+        filter.Q.value = 1.2;
+
+        source.connect(filter);
+        filter.connect(ctx.destination);
+        source.start();
+      } catch (e) {
+        // Suppress errors if AudioContext is blocked or inactive
+      }
+    }
+
+    // Apply Page Styles and CSS Classes dynamically for 3D flip ordering
+    function updatePageClasses() {
+      const pages = document.querySelectorAll(".book-page");
+      pages.forEach((page, index) => {
+        const pageNum = index + 1;
+        
+        if (pageNum < currentPage) {
+          // Page is flipped over to the left
+          page.classList.add("flipped");
+          page.classList.remove("active");
+          page.style.zIndex = pageNum; 
+        } else if (pageNum === currentPage) {
+          // Active reading page
+          page.classList.remove("flipped");
+          page.classList.add("active");
+          page.style.zIndex = 100; // Top visible depth
+        } else {
+          // Unopened future page stacked on the right
+          page.classList.remove("flipped", "active");
+          page.style.zIndex = totalPages - pageNum; 
+        }
+      });
+
+      // Update Nav Button Visibility States
+      document.getElementById("prevBtn").style.opacity = currentPage === 1 ? "0.3" : "1";
+      document.getElementById("prevBtn").style.pointerEvents = currentPage === 1 ? "none" : "auto";
+      document.getElementById("nextBtn").style.opacity = currentPage === totalPages ? "0.3" : "1";
+      document.getElementById("nextBtn").style.pointerEvents = currentPage === totalPages ? "none" : "auto";
+
+      // Update Navigation Dots
+      const dots = document.getElementById("dotsContainer").children;
+      for (let i = 0; i < dots.length; i++) {
+        if (i + 1 === currentPage) {
+          dots[i].classList.replace("bg-slate-600", "bg-gold");
+          dots[i].classList.add("scale-125", "w-3.5", "h-3.5");
+        } else {
+          dots[i].classList.replace("bg-gold", "bg-slate-600");
+          dots[i].classList.remove("scale-125", "w-3.5", "h-3.5");
+          dots[i].classList.add("w-2.5", "h-2.5");
+        }
+      }
+    }
+
+    // Main Control: Go to specific page index
+    function goToPage(pageNum) {
+      if (pageNum < 1 || pageNum > totalPages || pageNum === currentPage) return;
+      currentPage = pageNum;
+      playFlipSound();
+      updatePageClasses();
+    }
+
+    // Left and Right Button controls
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        playFlipSound();
+        updatePageClasses();
+      }
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        playFlipSound();
+        updatePageClasses();
+      }
+    });
+
+    // Touch Swiping Handlers
+    const bookArea = document.getElementById("restaurantBook");
+
+    bookArea.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    bookArea.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipeGesture();
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+      const swipeDistance = touchEndX - touchStartX;
+      const threshold = 55; // swipe sensitivity
+      
+      if (swipeDistance < -threshold) {
+        // Swiped right-to-left: next page
+        if (currentPage < totalPages) {
+          currentPage++;
+          playFlipSound();
+          updatePageClasses();
+        }
+      } else if (swipeDistance > threshold) {
+        // Swiped left-to-right: previous page
+        if (currentPage > 1) {
+          currentPage--;
+          playFlipSound();
+          updatePageClasses();
+        }
+      }
+    }
+
+    // Keyboard Arrow control listeners
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft" && currentPage > 1) {
+        currentPage--;
+        playFlipSound();
+        updatePageClasses();
+      } else if (e.key === "ArrowRight" && currentPage < totalPages) {
+        currentPage++;
+        playFlipSound();
+        updatePageClasses();
+      }
+    });
+
+    // Fallback Renderer applying robust default price structure initially
+    function applyFallbackMenu() {
+      const menuItems = document.querySelectorAll(".menu-item");
+      menuItems.forEach(item => {
+        const name = item.getAttribute("data-name");
+        const priceLabel = item.querySelector(".item-price");
+        if (priceLabel && fallbackPrices[name]) {
+          priceLabel.textContent = fallbackPrices[name];
+        } else if (priceLabel) {
+          priceLabel.textContent = "₹00"; // default if missing in mapping
+        }
+      });
+      
+      const badge = document.getElementById("syncStatus");
+      badge.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-slate-500"></span> Offline Cache Mode`;
+    }
+
+    // Advanced CSV Parser that reads parsed cells smoothly avoiding quote breakages
+    function parseCSV(text) {
+      const rows = [];
+      let row = [""];
+      let inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        let c = text[i];
+        let next = text[i+1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') { i++; }
+          rows.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+      }
+      if (row.length > 1 || row[0] !== '') {
+        rows.push(row);
+      }
+      return rows;
+    }
+
+    // Main Google Sheet Fetching with exponential retry mechanism
+    async function loadGoogleSheet() {
+      const badge = document.getElementById("syncStatus");
+      badge.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-yellow-500 animate-pulse"></span> Synchronizing with sheet...`;
+
+      // Convert edit sheet URL to a direct CSV export link
+      let csvUrl = activeSheetUrl;
+      if (csvUrl.includes("/edit")) {
+        csvUrl = csvUrl.split("/edit")[0] + "/export?format=csv";
+      } else if (!csvUrl.endsWith("format=csv") && !csvUrl.endsWith("/export")) {
+        // Fallback convert if string doesn't match normal edit URL
+        const matches = csvUrl.match(/\/d\/([a-zA-Z0-9-_]+)/);
+        if (matches && matches[1]) {
+          csvUrl = `https://docs.google.com/spreadsheets/d/${matches[1]}/export?format=csv`;
+        }
+      }
+
+      let retries = 5;
+      let delay = 1000;
+      let response;
+
+      while (retries > 0) {
+        try {
+          response = await fetch(csvUrl);
+          if (response.ok) break;
+        } catch (err) {
+          // fetch error
+        }
+        retries--;
+        if (retries === 0) {
+          console.warn("Retries exhausted, falling back to local storage menu data.");
+          applyFallbackMenu();
+          return;
+        }
+        await new Promise(r => setTimeout(r, delay));
+        delay *= 2; // exponential backoff
+      }
+
+      try {
+        const rawText = await response.text();
+        const parsedRows = parseCSV(rawText);
+        
+        if (parsedRows.length < 2) {
+          throw new Error("Invalid sheet length or empty document");
+        }
+
+        // Apply Data Mapping from sheet
+        applyParsedData(parsedRows);
+        badge.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Live Synced with Sheet`;
+      } catch (error) {
+        console.error("Failed to parse sheet:", error);
+        applyFallbackMenu();
+        badge.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Live Sync Failed`;
+      }
+    }
+
+    // Apply Parsed Google Sheet data to the visible DOM elements
+    function applyParsedData(rows) {
+      // Find headers to match indices
+      const headers = rows[0].map(h => h.toLowerCase().trim());
+      
+      const nameIndex = headers.findIndex(h => h.includes("item") || h.includes("name") || h.includes("dish"));
+      const priceIndex = headers.findIndex(h => h.includes("price") || h.includes("rate") || h.includes("rs") || h.includes("cost"));
+
+      // Standard fallback index maps if header names are fully custom/unmatched
+      const finalNameIndex = nameIndex !== -1 ? nameIndex : 0;
+      const finalPriceIndex = priceIndex !== -1 ? priceIndex : 1;
+
+      // Map rows into a key value lookup
+      const sheetPrices = {};
+      
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        if (row.length <= finalNameIndex || !row[finalNameIndex]) continue;
+        
+        const name = row[finalNameIndex].trim();
+        let price = row[finalPriceIndex] ? row[finalPriceIndex].trim() : "00";
+        
+        // Clean and format price tag symbol
+        if (!price.startsWith("₹") && !isNaN(price)) {
+          price = "₹" + price;
+        } else if (price === "0" || price === "") {
+          price = "₹00";
+        } else if (!price.startsWith("₹")) {
+          price = "₹" + price;
+        }
+        
+        sheetPrices[name.toLowerCase()] = price;
+      }
+
+      // Scan all menu DOM elements and inject the matched value
+      const menuItems = document.querySelectorAll(".menu-item");
+      menuItems.forEach(item => {
+        const name = item.getAttribute("data-name").toLowerCase();
+        const priceLabel = item.querySelector(".item-price");
+        if (priceLabel) {
+          if (sheetPrices[name]) {
+            priceLabel.textContent = sheetPrices[name];
+          } else {
+            // If item exists on DOM but missing in Google Sheet, load default fallback
+            const normalName = item.getAttribute("data-name");
+            priceLabel.textContent = fallbackPrices[normalName] || "₹00";
+          }
+        }
+      });
+    }
+
+    // Sync Config Modal Panel Interactions
+    function toggleConfigModal() {
+      const modal = document.getElementById("configModal");
+      const feedback = document.getElementById("syncFeedback");
+      feedback.textContent = "";
+
+      if (modal.classList.contains("hidden")) {
+        modal.classList.remove("hidden");
+        setTimeout(() => {
+          modal.classList.remove("opacity-0");
+        }, 10);
+      } else {
+        modal.classList.add("opacity-0");
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 300);
+      }
+    }
+
+    // Save customized user Google Sheet config
+    function saveAndApplySheet() {
+      const inputVal = document.getElementById("sheetUrlInput").value.trim();
+      const feedback = document.getElementById("syncFeedback");
+      
+      if (!inputVal) {
+        feedback.className = "text-[10px] text-red-500 mt-2 text-center";
+        feedback.textContent = "Please enter a valid Google Sheets URL.";
+        return;
+      }
+
+      activeSheetUrl = inputVal;
+      localStorage.setItem("saffron_sheet_url", inputVal);
+      feedback.className = "text-[10px] text-emerald-400 mt-2 text-center";
+      feedback.textContent = "Sync configuration updated! Loading...";
+      
+      loadGoogleSheet();
+      setTimeout(() => {
+        toggleConfigModal();
+      }, 1000);
+    }
+
+    // Reset configuration back to original Google Sheet URL
+    function resetToDefaultSheet() {
+      activeSheetUrl = DEFAULT_SHEET_URL;
+      document.getElementById("sheetUrlInput").value = DEFAULT_SHEET_URL;
+      localStorage.removeItem("saffron_sheet_url");
+      
+      const feedback = document.getElementById("syncFeedback");
+      feedback.className = "text-[10px] text-emerald-400 mt-2 text-center";
+      feedback.textContent = "Reset to default. Reloading database...";
+      
+      loadGoogleSheet();
+      setTimeout(() => {
+        toggleConfigModal();
+      }, 1000);
+    }
+
+    // Initialize Menu System on DOM Load
+    window.onload = function () {
+      applyFallbackMenu(); // render premium placeholders immediately for instant view
+      loadGoogleSheet();   // asynchronously load Google Sheet data securely
+      updatePageClasses(); // arrange booklet layout sequence
+    };
+  </script>
+</body>
+</html>
+
+```
